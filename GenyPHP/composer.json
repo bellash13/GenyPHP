@@ -1,0 +1,17 @@
+{
+    "name": "bellash/geny-php",
+    "description": "A lite ever PHP Framework",
+    "type": "project",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "GenyPhp\\": "GenyPHP/src/",
+            "App\\": "App"
+        }
+    },
+    "authors": [{
+        "name": "Theodor Bellash",
+        "email": "theobellash@gmail.com"
+    }],
+    "require": {}
+}
