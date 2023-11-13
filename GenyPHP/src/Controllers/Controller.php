@@ -4,6 +4,15 @@
 namespace GenyPhp\Controllers;
 
 class Controller {
+    protected $request = [];
+
+    public function __construct() {
+        $this->bindData();
+    }
+
+    protected function bindData() {
+        $this->request = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST : $_GET;
+    }
     protected function render($view, $data = []) {
         array_walk_recursive($data, function (&$item) {
             $item = htmlspecialchars($item, ENT_QUOTES, 'UTF-8');

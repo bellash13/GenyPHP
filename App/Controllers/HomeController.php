@@ -10,8 +10,7 @@ class HomeController extends  Controller{
         $this->render('index', $data);
     }
     public function create() {
-        extract($_POST);
-        $data = ['firstName' => $firstName, 'title' => 'You posted'];
+        $data = ['firstName' => $this->request['firstName'], 'title' => 'You posted'];
         $this->render('index', $data);
     }
 }
