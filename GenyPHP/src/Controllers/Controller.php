@@ -4,7 +4,6 @@
 namespace GenyPhp\Controllers;
 
 class Controller {
-    // Common properties and methods for all controllers
     protected function render($view, $data = []) {
         array_walk_recursive($data, function (&$item) {
             $item = htmlspecialchars($item, ENT_QUOTES, 'UTF-8');

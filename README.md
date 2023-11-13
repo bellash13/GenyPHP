@@ -5,10 +5,11 @@ GenyPHP is a lightweight, easy-to-use PHP framework designed for building web ap
 
 ## Installation
 
-1. **Clone the Repository**
+1. **Clone or download the Repository**
    ```sh
    git clone https://github.com/bellash13/GenyPHP.git
    ```
+Alternatively, you can download the directory and start coding your valuable application
 
 2. **Navigate to the Project Directory**
    ```sh
@@ -85,4 +86,4 @@ Contributions are welcome! Please feel free to submit a pull request or create a
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+This project is licensed under the MIT License.

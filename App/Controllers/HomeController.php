@@ -9,4 +9,9 @@ class HomeController extends  Controller{
         $data = ['title' => 'Welcome to GenyPHP!'];
         $this->render('index', $data);
     }
+    public function create() {
+        extract($_POST);
+        $data = ['firstName' => $firstName, 'title' => 'You posted'];
+        $this->render('index', $data);
+    }
 }

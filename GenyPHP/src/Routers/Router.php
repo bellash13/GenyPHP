@@ -20,12 +20,15 @@ class Router {
     public function dispatch() {
         $method = $_SERVER['REQUEST_METHOD'];
         $uri = $_SERVER['REQUEST_URI'];
-
-        //
+    
         // Remove subdirectory part if application is in a subdirectory
         $scriptDir = dirname($_SERVER['SCRIPT_NAME']);
-        $path = preg_replace('#^' . preg_quote($scriptDir, '#') . '#', '', $uri);
-
+        define('APP_ROOT', $scriptDir);
+        
+        // Separate the path from the query string
+        $path = parse_url($uri, PHP_URL_PATH);
+        $path = preg_replace('#^' . preg_quote($scriptDir, '#') . '#', '', $path);
+    
         foreach ($this->routes[$method] ?? [] as $routePath => $handler) {
             if ($path === $routePath) {
                 $controller = new $handler['controller'];
@@ -34,11 +37,12 @@ class Router {
                 return;
             }
         }
-
-        // Gérer l'absence de route correspondante
+    
+        // Handle the absence of a corresponding route
         header("HTTP/1.0 404 Not Found");
         echo "404 Not Found";
     }
+    
     private function sanitize($data) {
         if (is_array($data)) {
             foreach ($data as $key => $value) {
