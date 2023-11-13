@@ -10,7 +10,6 @@ GenyPHP is a lightweight, easy-to-use PHP framework designed for building web ap
    git clone https://github.com/bellash13/GenyPHP.git
    ```
 Alternatively, you can download the directory and start coding your valuable application
-
 2. **Navigate to the Project Directory**
    ```sh
    cd GenyPHP
@@ -48,23 +47,15 @@ Alternatively, you can download the directory and start coding your valuable app
    }
    ```
 
-3. **Creating Views**
+3. **Creating Views with Layouts**
    Store your views in `App/Views`. Example `Home/index.php`:
    ```html
-   <!DOCTYPE html>
-   <html lang="en">
-   <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-       <title><?=$title?></title>
-       <!-- Add your stylesheets here -->
-   </head>
-   <body>
-       <h1>Welcome to GenyPHP!</h1>
-       <p><?=$title?></p>
-       <!-- Your content goes here -->
-   </body>
-   </html>
+   <h1>Welcome to GenyPHP!</h1>
+   <p><?=$title?></p>
+   ```
+   For layouts, use `App/Views/Shared/layout.php` and include views dynamically:
+   ```php
+   $this->renderLayout('Shared/layout', 'Home/index', $data);
    ```
 
 4. **Public Directory**
