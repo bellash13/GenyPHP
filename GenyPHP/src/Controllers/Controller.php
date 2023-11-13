@@ -13,15 +13,22 @@ class Controller {
     protected function bindData() {
         $this->request = $_SERVER['REQUEST_METHOD'] === 'POST' ? $_POST : $_GET;
     }
-    protected function render($view, $data = []) {
+    protected function render($view, $data = [], $layout = 'Shared/layout') {
         array_walk_recursive($data, function (&$item) {
             $item = htmlspecialchars($item, ENT_QUOTES, 'UTF-8');
         });
 
         extract($data);
-        $controller = strtolower((new \ReflectionClass($this))->getShortName());
-        $controllerName = str_replace('controller', '', $controller);
-        include __DIR__ . "/../../../App/Views/$controllerName/$view.php";
+
+        ob_start();
+        include __DIR__ . "/../../../App/Views/$view.php";
+        $content = ob_get_clean();
+
+        if ($layout) {
+            include __DIR__ . "/../../../App/Views/$layout.php";
+        } else {
+            echo $content;
+        }
     }
 
     // Other common methods can be added here

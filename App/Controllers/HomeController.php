@@ -7,10 +7,10 @@ use GenyPhp\Controllers\Controller;
 class HomeController extends  Controller{
     public function index() {
         $data = ['title' => 'Welcome to GenyPHP!'];
-        $this->render('index', $data);
+        $this->render('home/index', $data);
     }
     public function create() {
-        $data = ['firstName' => $this->request['firstName'], 'title' => 'You posted'];
-        $this->render('index', $data);
+        $data = ['firstName' => $this->request['firstName']??'', 'title' => 'You posted'];
+        $this->render('home/index', $data);
     }
 }
