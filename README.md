@@ -7,7 +7,7 @@ GenyPHP is a lightweight, easy-to-use PHP framework designed for building web ap
 
 1. **Clone the Repository**
    ```sh
-   git clone https://github.com/yourusername/GenyPHP.git
+   git clone https://github.com/bellash13/GenyPHP.git
    ```
 
 2. **Navigate to the Project Directory**
@@ -68,6 +68,16 @@ GenyPHP is a lightweight, easy-to-use PHP framework designed for building web ap
 
 4. **Public Directory**
    Access your application through the `public` directory in the `App` folder.
+
+## Roadmap
+
+- Add support for layout view.
+- Add database support using Doctrine.
+- Add support for REST returning JSON.
+- Add authentication support.
+- Add authorization support.
+- Add attributes usage support.
+- Update the readme file.
 
 ## Contributing
 
